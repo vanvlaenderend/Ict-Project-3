@@ -10,13 +10,19 @@ jimport('joomla.application.component.view');
  */
 class HelloWorldViewHelloWorld extends JView
 {
-        // Overwriting JView display method
-        function display($tpl = null) 
-        {
-                // Assign data to the view
-                $this->msg = 'Hello World';
+	// Overwriting JView display method
+	function display($tpl = null) 
+	{
+		// Assign data to the view
+		$this->item = $this->get('Item');
  
-                // Display the view
-                parent::display($tpl);
-        }
+		// Check for errors.
+		if (count($errors = $this->get('Errors'))) 
+		{
+			JError::raiseError(500, implode('<br />', $errors));
+			return false;
+		}
+		// Display the view
+		parent::display($tpl);
+	}
 }

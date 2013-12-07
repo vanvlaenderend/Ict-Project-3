@@ -9,8 +9,7 @@ jimport('joomla.application.component.controller');
 $controller = JController::getInstance('HelloWorld');
  
 // Perform the Request task
-$input = JFactory::getApplication()->input;
-$controller->execute($input->getCmd('task'));
+$controller->execute(JRequest::getCmd('task'));
  
 // Redirect if set by the controller
 $controller->redirect();

@@ -10,5 +10,4 @@ jimport('joomla.application.component.controller');
  */
 class HelloWorldController extends JController
 {
-    
 }
